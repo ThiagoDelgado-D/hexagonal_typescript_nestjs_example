@@ -1,10 +1,10 @@
-import { UserId } from "../../domain/UserId";
+import { User } from "../../domain/User";
 import { UserRepository } from "../../domain/UserRepository";
 
-export class UserDelete {
+export class UserGetAll {
   constructor(private repository: UserRepository) {}
 
-  async run(id: string): Promise<void> {
-    await this.repository.delete(new UserId(id));
+  async run(): Promise<User[]> {
+    return this.repository.getAll();
   }
 }

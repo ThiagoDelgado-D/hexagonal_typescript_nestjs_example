@@ -19,6 +19,7 @@ import { TUserEntity } from './lib/User/infraestructure/TypeOrm/UserEntity';
         entities: [TUserEntity],
       }),
     }),
+    TypeOrmModule.forFeature([TUserEntity]),
     UserModule,
   ],
   controllers: [],

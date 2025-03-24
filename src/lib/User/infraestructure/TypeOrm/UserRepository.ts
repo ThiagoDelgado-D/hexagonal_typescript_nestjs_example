@@ -8,7 +8,9 @@ import { UserName } from '../../domain/UserName';
 import { UserEmail } from '../../domain/UserEmail';
 import { UserCreatedAt } from '../../domain/UserCreatedAt';
 import { UserNotFoundError } from '../../domain/UserNotFoundError';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class TUserRepository implements UserRepository {
   constructor(
     @InjectRepository(TUserEntity)

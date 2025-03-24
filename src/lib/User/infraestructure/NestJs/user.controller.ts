@@ -1,9 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Inject } from '@nestjs/common';
+import { UserGetAll } from '../../application/UserGetAll/UserGetAll';
 
 @Controller('user')
 export class UserController {
+    constructor (
+        @Inject('UserGetAll') 
+        private readonly userGetall: UserGetAll,
+    ) {}
+
     @Get()
     async getAll() {
-        return 'Get all users'
+        return this.userGetall.run();
     }
 }
