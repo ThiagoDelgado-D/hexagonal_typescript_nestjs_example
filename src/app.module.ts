@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './lib/User/infraestructure/NestJs/user.module';
+import { TUserEntity } from './lib/User/infraestructure/TypeOrm/UserEntity';
 
 @Module({
   imports: [
@@ -15,8 +16,7 @@ import { UserModule } from './lib/User/infraestructure/NestJs/user.module';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
-        entities: [],
-        synchronize: true,
+        entities: [TUserEntity],
       }),
     }),
     UserModule,
