@@ -7,7 +7,6 @@ import { UserId } from '../../domain/UserId';
 import { UserName } from '../../domain/UserName';
 import { UserEmail } from '../../domain/UserEmail';
 import { UserCreatedAt } from '../../domain/UserCreatedAt';
-import { UserNotFoundError } from '../../domain/UserNotFoundError';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -30,15 +29,14 @@ export class TUserRepository implements UserRepository {
     const users = await this.repository.find();
     return users.map((user) => this.mapToDomain(user));
   }
-  async getOneById(id: UserId): Promise<User> {
+  async getOneById(id: UserId): Promise<User | null> {
     const user = await this.repository.findOne({
       where: {
         id: id.value,
       },
     });
 
-    if (!user) throw new UserNotFoundError('User does not exist');
-
+    if (!user) return null;
     return this.mapToDomain(user);
   }
 
