@@ -24,4 +24,13 @@ export class User {
   public nameAndEmail() {
     return `${this.name} - ${this.email}`;
   }
+
+  public toPlainObject() {
+    return {
+      id: this.id.value,
+      name: this.name.value,
+      email: this.email.value,
+      createdAt: this.createdAt.value,
+    }
+  }
 }

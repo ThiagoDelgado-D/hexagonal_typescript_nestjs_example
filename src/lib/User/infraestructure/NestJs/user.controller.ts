@@ -10,6 +10,6 @@ export class UserController {
 
     @Get()
     async getAll() {
-        return this.userGetall.run();
+        return ((await this.userGetall.run()).map(user => user.toPlainObject()));
     }
 }

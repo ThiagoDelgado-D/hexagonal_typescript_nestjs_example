@@ -14,7 +14,6 @@ import { TUserEntity } from './lib/User/infraestructure/TypeOrm/UserEntity';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [TUserEntity],
-      synchronize: true,
     }),
     TypeOrmModule.forFeature([TUserEntity]),
     UserModule,
