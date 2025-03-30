@@ -8,9 +8,10 @@ import { UserDelete } from '../../application/UserDelete/UserDelete';
 import { createProvider } from '../helpers/createProvider';
 import { TUserRepository } from '../TypeOrm/UserRepository';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TUserEntity } from '../TypeOrm/UserEntity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([TUserRepository])],
+  imports: [TypeOrmModule.forFeature([TUserEntity])],
   controllers: [UserController],
   providers: [
     {

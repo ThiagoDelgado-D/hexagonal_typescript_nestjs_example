@@ -7,17 +7,14 @@ import { TUserEntity } from './lib/User/infraestructure/TypeOrm/UserEntity';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `.env.${process.env.NODE_ENV}.local`,
+      envFilePath: '.dev.env',
       isGlobal: true,
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        url: configService.get<string>('DATABASE_URL'),
-        entities: [TUserEntity],
-      }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      entities: [TUserEntity],
+      synchronize: true,
     }),
     TypeOrmModule.forFeature([TUserEntity]),
     UserModule,
