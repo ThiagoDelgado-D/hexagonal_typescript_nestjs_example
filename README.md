@@ -11,6 +11,7 @@ This project is a comprehensive example demonstrating how to apply the **Hexagon
   - [Infrastructure and Adapters](#infrastructure-and-adapters)
   - [Configuration and Integration](#configuration-and-integration)
   - [Running the Project](#running-the-project)
+  - [Database Connection Test](#database-connection-test)
   - [Conclusion](#conclusion)
 
 ## Hexagonal Architecture
@@ -120,6 +121,18 @@ This abstraction keeps the domain pure and testable.
    ```bash
    npm run start:dev
    ```
+
+## Database Connection Test
+
+A quick test script is available to verify the connection to your PostgreSQL database using Supabase. This script loads your environment variables and attempts to initialize a TypeORM DataSource.
+
+To run the test, execute:
+
+```bash
+node src/lib/User/infraestructure/TypeOrm/test-db-connection.ts
+```
+
+If the connection is successful, you'll see confirmation messages on the console; otherwise, error details will be logged.
 
 ## Conclusion
 
