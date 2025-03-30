@@ -121,13 +121,6 @@ This abstraction keeps the domain pure and testable.
    npm run start:dev
    ```
 
-5. **Run Tests (Unit and E2E):**
-
-   ```bash
-   npm run test
-   npm run test:e2e
-   ```
-
 ## Conclusion
 
 This project serves as a robust example of implementing Hexagonal Architecture in a NestJS application. Its modular design ensures that the domain remains pure and easily testable, while changes to the infrastructure (such as switching database synchronization behavior based on the environment or integrating Supabase for PostgreSQL connectivity) have minimal impact on the business logic. Explore the codebase to see how a clear separation of concerns leads to a scalable and maintainable project structure.
