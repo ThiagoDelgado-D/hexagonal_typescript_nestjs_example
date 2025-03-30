@@ -43,7 +43,7 @@ export class UserController {
       return (await this.userGetOneById.run(params.id)).toPlainObject();
     } catch (error) {
       if (error instanceof UserNotFoundError) {
-        return new NotFoundException();
+        throw new NotFoundException();
       }
       throw error;
     }
@@ -59,7 +59,7 @@ export class UserController {
     );
   }
 
-  @Put()
+  @Put(':id')
   async edit(@Param() params: FindOneParams, @Body() body: Edit) {
     return await this.userEdit.run(
       params.id,

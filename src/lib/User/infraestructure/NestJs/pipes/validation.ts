@@ -1,7 +1,8 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, Length } from 'class-validator';
 
 export class FindOneParams {
   @IsString()
+  @Length(5, 255)
   id: string;
 }
 

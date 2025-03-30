@@ -1,8 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('users')
 export class TUserEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: string;
 
   @Column()
@@ -11,6 +11,6 @@ export class TUserEntity {
   @Column()
   email: string;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 }
